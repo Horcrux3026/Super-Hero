@@ -321,12 +321,34 @@ const superHeroApp = (() => {
 		search(value);
 	};
 	//----------------------------------------------------------------
+	//Function: Handles the Press Events//
+	const handlePress = (event) => {
+		if (event.key === "Enter") {
+			event.preventDefault();
+			event.stopPropagation();
+			const submit = document.getElementById("search-button");
+			const val = submit.previousElementSibling.children[0].value;
+			if (val.length > 0) {
+				//Click the Search Button
+				submit.click();
+				//Store the superhero name in localStorage
+				localStorage.setItem("superhero", val.toLowerCase());
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
+				return;
+			}
+			return;
+		}
+	};
+	//----------------------------------------------------------------
 	//Function: Initializes the Superhero Hunter App//
 	const initializeApp = () => {
 		//Click Event Delegation
 		document.addEventListener("click", handleClick);
 		//Input Event Listener
 		document.addEventListener("input", handleInput);
+		//Press Event Listener
+		document.addEventListener("keypress", handlePress);
 		//Runs on every Window Load/Reload
 		window.onload = () => {
 			//Runs the videoPlay function
