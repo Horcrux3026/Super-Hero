@@ -30,7 +30,7 @@ const favouriteSuperheroPage = (() => {
 	//Function: Fetch Favourite Super Heroes from the Local Storage//
 	const fetchFavouriteSuperHeroes = () => {
 		//Fetch the Favourites from Local Storage
-		const favourites = JSON.parse(localStorage.getItem("favourites"));
+		const favourites = JSON.parse(localStorage.getItem("favourites")); 
 		const images = JSON.parse(localStorage.getItem("images"));
 
 		//Remove the Previous Results from the Screen
@@ -121,7 +121,7 @@ const favouriteSuperheroPage = (() => {
 			localStorage.setItem("superhero", val);
 			//Redirect to the Superhero Page
 
-			window.location.href = "/superhero-page.html";
+			window.location.href = "./superhero-page.html";
 		}
 	};
 	//----------------------------------------------------------------
